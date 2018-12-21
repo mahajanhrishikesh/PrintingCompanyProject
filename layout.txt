@@ -1,0 +1,18 @@
+website main
+Layer1:(before login)
+>>homepage
+  >>login_pages>>tabstructure-linkage
+    >>signup>>signup.inc
+    >>register>>registration.inc
+Layer2:(after login)
+>>homepage
+  >>User_data>>userinfodisp
+  >>NewOrder>>NewJobcard
+              >>Self?
+	        >>SelfAssign>>jobcard.inc.php>>jobcard.py
+	      >>Master?
+		>>MasterAssign>>jobcard2.inc.php>>jobcard2.py 
+  >>Chatroom
+	>>Chatbox.main
+  >>Current status!
+	>>Current status
