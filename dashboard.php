@@ -400,7 +400,9 @@ while($row = mysqli_fetch_assoc( $result )) {
         echo '<option value="'.$row['name'].'">' . $row['name'] . '</option>';   
 }
 echo '</select>';
+
 ?>
+
 <div>
 <h4>GSM</h4>
 <input type="tel" id="gsm" name="gsm" placeholder="GSM" required>
@@ -410,6 +412,9 @@ echo '</select>';
 <div>
 <button type="submit" name="Gimages">Get Images</button>
 </div>
+</form>
+<form target="_blank" action="includes/graphshow.php" method="POST" >
+<button type="submit" name="GraphImages" method="POST">Show Graphs</button>
 </form>
 </div>
 
@@ -435,7 +440,7 @@ div {
         <title>Forms in Bootstrap</title>
     </head>
     <body>
-        <h2>JOB CARD SHOWCASE</h2>
+        <h2>ORDER A NEW JOBCARD</h2>
         <nav>
           <h2>Quotation</h2>
 <input id='first' type="text" class="form-control formBlock" name="bus_ticket"  placeholder="Length" required/><br />

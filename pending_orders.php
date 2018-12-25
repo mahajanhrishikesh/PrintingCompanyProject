@@ -2,7 +2,7 @@
 $connection = mysqli_connect('localhost','root','','loginsystem');
 
 
-$sql = "SELECT * FROM printing_request WHERE master_printer_job = 1 ";
+$sql = "SELECT * FROM printing_request_pending";
 
 $records = mysqli_query($connection,$sql);
 ?>
@@ -43,6 +43,15 @@ th {
 </HEAD>
 
 <BODY bgcolor='white'>
+<form method="POST" action="includes/jcaccept.php">
+<h6>Enter the order ID you want to confirm</h6>
+<input type="tel" placeholder="Enter Order ID" name="ordap" required>
+<br>
+<input type="tel" placeholder="Cost" name="costap" required>
+<br>
+<button type="submit" name="submitjca">Approve!</button>
+</form>
+<hr>
 
 <TABLE width == '300' border = '1' cellpaddin='2' cellspacing='2' rules = "all" frame = "border" bgcolor='white' align='center'>
 <tr  bgcolor="yellow">
@@ -56,10 +65,10 @@ th {
 	<th>Width</th>
 	<th>GSM</th>
 	<th>Number of copies</th>
-	<th>Cost</th>
-	<th>Accept</th>
 <tr>
+
 <?php
+$i=0;
 while($response = mysqli_fetch_assoc($records))
 {
 echo "<tr>";
@@ -73,11 +82,10 @@ echo "<tr>";
 	echo "<td>".$response['width']."</td>";
 	echo "<td>".$response['gsm']."</td>";
 	echo "<td>".$response['num_of_copies']."</td>";
-	echo "<td>".$response['order_cost']."</td>";
-	echo "<td><button type='submit'>Accept</button></td>";
 echo "<tr>";
 }
 ?>
+
 </table>
 </body>
 </html>
